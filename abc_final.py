@@ -91,15 +91,15 @@ def js_divergence(
 from explainerdashboard import ClassifierExplainer, ExplainerDashboard
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
-from catboost import CatBoostClassifier
-import dalex as dx
-from aif360.sklearn import metrics
+# from catboost import CatBoostClassifier
+# import dalex as dx
+#from aif360.sklearn import metrics
 from sklearn.tree import DecisionTreeClassifier 
 from sklearn.preprocessing import StandardScaler,OneHotEncoder,LabelEncoder 
-from sklearn.compose import ColumnTransformer
-from sklearn.datasets import fetch_openml
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
+# from sklearn.compose import ColumnTransformer
+# from sklearn.datasets import fetch_openml
+# from sklearn.pipeline import Pipeline
+# from sklearn.impute import SimpleImputer
 
 feature_descriptions = {
 

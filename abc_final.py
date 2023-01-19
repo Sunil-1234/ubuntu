@@ -236,7 +236,7 @@ if upload_file is not None:
     st.header('Sample of Dataframe')
     st.write(df.head())
     ls=df.columns.tolist()
-   # ls.insert(0,'ALL')
+    ls.insert(0,'ALL')
     st.header('Bias in dataset')
     col_choice = st.selectbox('Choose feature name:',ls)
     col_val=st.selectbox('Choose threshold:',df[col_choice].unique())

@@ -236,7 +236,7 @@ if upload_file is not None:
     st.header('Sample of Dataframe')
     st.write(df.head())
     ls=df.columns.tolist()
-    ls.insert(0,'ALL')
+   # ls.insert(0,'ALL')
     st.header('Bias in dataset')
     col_choice = st.selectbox('Choose feature name:',ls)
     col_val=st.selectbox('Choose threshold:',df[col_choice].unique())
@@ -344,7 +344,7 @@ if upload_file is not None:
     if check_explainer=='Yes':
         
         db = explain_dash(df)
-        url="http://127.0.0.1:8050/"
+        url="http://3.221.61.212:8050/"
         st.write("check out this [link](%s)" % url)
 
         #st.markdown("check out this [link](%s)" % url)

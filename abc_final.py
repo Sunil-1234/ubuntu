@@ -219,7 +219,7 @@ import ipywidgets as widgets
 from IPython.display import display
 from explainerdashboard import ClassifierExplainer, ExplainerDashboard
 # Add a title and intro text
-st.title('DATA BIASING EXPLORER')
+st.title('VFair-Bias Report')
 st.text('This is a web app to allow exploration of Healthcare Data')
 # Create file uploader object
 upload_file = st.file_uploader('Upload a file containing data regarding biasing')
@@ -229,14 +229,19 @@ if upload_file is not None:
     # Read the file to a dataframe using pandas
     df = pd.read_csv(upload_file)
     df.dropna(inplace=True)
-    # Create a section for the dataframe statistics
-    st.header('Statistics of Dataframe')
-    st.write(df.drop(['patientmasterkey'],axis=1).describe())
+    
     # Create a section for the dataframe header
     st.header('Sample of Dataframe')
     st.write(df.head())
+    
+    # Create a section for the dataframe statistics
+    st.header('Stastical distribution of numeric feature')
+    st.write(df.drop(['patientmasterkey'],axis=1).describe())
+    
+    
     ls=df.columns.tolist()
-    ls.insert(0,'ALL')
+    ls.remove('patientmasterkey')
+   # ls.insert(0,'ALL')
     st.header('Bias in dataset')
     col_choice = st.selectbox('Choose feature name:',ls)
     col_val=st.selectbox('Choose threshold:',df[col_choice].unique())
@@ -340,9 +345,14 @@ if upload_file is not None:
 #     st.write(shap_v(df,col_choice))
 #     st.subheader('Model fairness with respect to module Dalex')
 #     dalex_bias(df)
-    check_explainer=st.selectbox('Want to run explainer',['No','Yes'])
+    options = ['No','Yes']
+
+    st.markdown("**Want to run explainer:**")
+
+    check_explainer = st.selectbox("", options)
+    #check_explainer=st.selectbox('Want to run explainer',['No','Yes'])
     if check_explainer=='Yes':
-        
+        st.write('explaining model prediction report')
         db = explain_dash(df)
         url="http://3.221.61.212:8050/"
         st.write("check out this [link](%s)" % url)

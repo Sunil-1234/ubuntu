@@ -352,7 +352,7 @@ if upload_file is not None:
     check_explainer = st.selectbox("", options)
     #check_explainer=st.selectbox('Want to run explainer',['No','Yes'])
     if check_explainer=='Yes':
-        st.write('explaining model prediction report')
+        st.write('Generating model prediction report')
         db = explain_dash(df)
         url="http://3.221.61.212:8050/"
         st.write("check out this [link](%s)" % url)

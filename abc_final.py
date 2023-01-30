@@ -361,5 +361,19 @@ if upload_file is not None:
 
 
         db.run(port=8050)
+        
+    options = ['No','Yes']
+
+    st.markdown("**Want to run evidently:**")
+
+    check_monitor = st.selectbox("", options)
+    #check_explainer=st.selectbox('Want to run evidently',['No','Yes'])
+    if check_monitor=='Yes':
+        st.write('Generating model monitoring report')
+        
+        url="http://3.221.61.212:8000/"
+        st.write("check out this [link](%s)" % url)
+
+        #st.markdown("check out this [link](%s)" % url)
     
  

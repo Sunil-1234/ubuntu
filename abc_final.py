@@ -366,7 +366,7 @@ if upload_file is not None:
 
     st.markdown("**Want to run evidently:**")
 
-    check_monitor = st.selectbox("", options)
+    check_monitor = st.radio("", ('No','Yes'))
     #check_explainer=st.selectbox('Want to run evidently',['No','Yes'])
     if check_monitor=='Yes':
         st.write('Generating model monitoring report')

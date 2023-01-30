@@ -345,6 +345,20 @@ if upload_file is not None:
 #     st.write(shap_v(df,col_choice))
 #     st.subheader('Model fairness with respect to module Dalex')
 #     dalex_bias(df)
+
+
+    st.markdown("**Want to run evidently:**")
+    check_monitor = st.radio("", ('No','Yes'))
+    #check_explainer=st.selectbox('Want to run evidently',['No','Yes'])
+    if check_monitor=='Yes':
+        st.write('Generating model monitoring report')
+        
+        url="http://3.221.61.212:8000/"
+        st.write("check out this [link](%s)" % url)
+
+        #st.markdown("check out this [link](%s)" % url)
+    
+    
     options = ['No','Yes']
 
     st.markdown("**Want to run explainer:**")
@@ -364,16 +378,7 @@ if upload_file is not None:
         
    # options = ['No','Yes']
 
-    st.markdown("**Want to run evidently:**")
+    
 
-    check_monitor = st.radio("", ('No','Yes'))
-    #check_explainer=st.selectbox('Want to run evidently',['No','Yes'])
-    if check_monitor=='Yes':
-        st.write('Generating model monitoring report')
-        
-        url="http://3.221.61.212:8000/"
-        st.write("check out this [link](%s)" % url)
-
-        #st.markdown("check out this [link](%s)" % url)
     
  

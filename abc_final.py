@@ -362,7 +362,7 @@ if upload_file is not None:
 
         db.run(port=8050)
         
-    options = ['No','Yes']
+   # options = ['No','Yes']
 
     st.markdown("**Want to run evidently:**")
 
